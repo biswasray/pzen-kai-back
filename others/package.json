@@ -1,5 +1,5 @@
 {
-  "name": "identity",
+  "name": "others",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@types/express": "^4.17.17",
     "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.12",
     "jest": "^29.5.0",
     "nodemon": "^2.0.21",
     "ts-node": "^10.9.1",
@@ -21,10 +22,6 @@
   "dependencies": {
     "env-cmd": "^10.1.0",
     "express": "^4.18.2",
-    "pg": "^8.10.0",
-    "pg-hstore": "^2.3.4",
-    "platform-error": "^1.0.6",
-    "sequelize": "^6.31.0",
-    "universe": "1.0.0"
+    "kafka-node": "^5.0.0"
   }
 }
