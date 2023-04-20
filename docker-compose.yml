@@ -30,11 +30,11 @@ services:
       - POSTGRES_DB=postgres
   identity:
     container_name: identity
-    build: ./identity
+    build: ./packages/identity
     ports:
       - 8080:8080
     volumes:
-      - ./identity:/app
+      - ./packages/identity:/app
     environment:
       - PORT=8080
       - POSTGRES_URL=postgres://postgres:postgres@localhost:5432/postgres
@@ -45,11 +45,11 @@ services:
       - kafka
   others:
     container_name: others
-    build: ./others
+    build: ./packages/others
     ports:
       - 8081:8081
     volumes:
-      - ./others:/app
+      - ./packages/others:/app
     environment:
       - PORT=8081
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092

@@ -1,6 +1,6 @@
 import express from "express";
 import kafka from "kafka-node";
-import { logger } from "./logger";
+import { logger } from "@pzen/universe";
 const app = express();
 
 app.use(express.json());
