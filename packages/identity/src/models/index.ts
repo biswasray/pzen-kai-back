@@ -1,6 +1,6 @@
 import { Sequelize } from "sequelize";
 import process from "process";
-import configurations from "../config/config";
+import { dbConfig as configurations } from "../config/config";
 import UserModel from "./user";
 import { tableNames } from "../schema";
 const env: keyof typeof configurations =

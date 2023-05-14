@@ -37,6 +37,7 @@ services:
       - ./packages/identity:/app
     environment:
       - PORT=8080
+      - TOKEN_KEY=qwertyuiopodghnbxsxxn
       - POSTGRES_URL=postgres://postgres:postgres@localhost:5432/postgres
       - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
       - KAFKA_TOPIC=topic1

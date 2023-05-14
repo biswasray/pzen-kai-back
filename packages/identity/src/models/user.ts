@@ -1,6 +1,7 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { IUser, IUserCreate } from "../interfaces/user";
 import { tableNames } from "../schema";
+import { userSchema } from "../schema/user";
 // class User extends Model {
 //   /**
 //    * Helper method for defining associations.
@@ -32,30 +33,39 @@ export default class UserModel extends Model<IUser, IUserCreate> {
   public static initialize(sequelize: Sequelize) {
     UserModel.init(
       {
-        id: {
+        [userSchema.id]: {
           autoIncrement: true,
-          type: DataTypes.STRING,
+          type: DataTypes.INTEGER,
           primaryKey: true,
         },
-        firstName: {
+        [userSchema.firstName]: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        lastName: {
+        [userSchema.lastName]: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        email: {
+        [userSchema.email]: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        userName: {
+        [userSchema.userName]: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        password: {
+        [userSchema.password]: {
           type: DataTypes.STRING,
           allowNull: false,
+        },
+        [userSchema.isActive]: {
+          type: DataTypes.BOOLEAN,
+          defaultValue: false,
+        },
+        [userSchema.lastActiveAt]: {
+          type: DataTypes.DATE,
+          allowNull: true,
+          defaultValue: null,
         },
         createdAt: DataTypes.DATE,
         updatedAt: DataTypes.DATE,
