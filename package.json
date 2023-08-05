@@ -6,8 +6,12 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "bootstrap": "lerna bootstrap",
-    "start": "lerna run start",
-    "build": "lerna run build"
+    "start": "lerna run dev",
+    "build": "lerna run build",
+    "dock": "echo \"Running by docker\" && npm install && npm run bootstrap && npm start",
+    "dev:service": "docker-compose up zookeeper kafka postgres",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down"
   },
   "workspaces": [
     "packages/*"

@@ -28,35 +28,47 @@ services:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
-  identity:
-    container_name: identity
-    build: ./packages/identity
-    ports:
-      - 8080:8080
+  app:
+    container_name: app
+    build: ./
+    # command: npm run dock
     volumes:
-      - ./packages/identity:/app
-    environment:
-      - PORT=8080
-      - TOKEN_KEY=qwertyuiopodghnbxsxxn
-      - POSTGRES_URL=postgres://postgres:postgres@localhost:5432/postgres
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - KAFKA_TOPIC=topic1
+      - ./:/app
+      - /app/node_modules
     depends_on:
       - postgres
       - kafka
-  others:
-    container_name: others
-    build: ./packages/others
-    ports:
-      - 8081:8081
-    volumes:
-      - ./packages/others:/app
-    environment:
-      - PORT=8081
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - KAFKA_TOPIC=topic1
-    depends_on:
-      - kafka
+  # identity:
+  #   container_name: identity
+  #   build: ./packages/identity
+  #   ports:
+  #     - 8080:8080
+  #   volumes:
+  #     - ./packages/identity:/app
+  #   environment:
+  #     - PORT=8080
+  #     - TOKEN_KEY=qwertyuiopodghnbxsxxn
+  #     - POSTGRES_URL=postgres://postgres:postgres@localhost:5432/postgres
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KAFKA_TOPIC=topic1
+  #   depends_on:
+  #     - app
+  #     - postgres
+  #     - kafka
+  # others:
+  #   container_name: others
+  #   build: ./packages/others
+  #   ports:
+  #     - 8081:8081
+  #   volumes:
+  #     - ./packages/others:/app
+  #   environment:
+  #     - PORT=8081
+  #     - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+  #     - KAFKA_TOPIC=topic1
+  #   depends_on:
+  #     - app
+  #     - kafka
   # products:
   #   build:
   #     dockerfile: Dockerfile
