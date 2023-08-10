@@ -1,6 +1,7 @@
 docker-compose up
 docker-compose down
 
+npm i
 npm run bootstrap
 npm run dev:service
 
