@@ -27,5 +27,5 @@ const isRunning = () => {
   });
 };
 setTimeout(isRunning, 4000);
-
+console.log("pport", process.env.PORT);
 app.listen(process.env.PORT);
